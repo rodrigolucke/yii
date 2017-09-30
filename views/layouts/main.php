@@ -37,9 +37,24 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
+            ['label' => 'Home', 'url' => ['/site/index']],          
+            ['label' => 'Controle de Acesso',  
+                'url' => ['#'],
+                'template' => '<a href="{url}" >{label}<i class="fa fa-angle-left pull-right"></i></a>',
+                'items' => [
+                    ['label' => 'Cadastrar Menu', 'url' => ['/menu/index']],
+                  
+                ],
+            ],
+            ['label' => 'Menu Principal',  
+                'url' => ['#'],
+                'template' => '<a href="{url}" >{label}<i class="fa fa-angle-left pull-right"></i></a>',
+                'items' => [
+                    ['label' => 'Cadastrar Pessoa', 'url' => ['/pessoa/index']],
+                    ['label' => 'Cadastrar Endereço', 'url' => ['endereco/index']],
+                    ['label' => 'Cadastrar Animal', 'url' => ['animal/index']],
+                ],
+            ],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (
