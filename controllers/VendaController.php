@@ -43,6 +43,17 @@ class VendaController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
+	
+	 public function actionTeste()
+    {
+        $dataProvider = new ActiveDataProvider([
+            'query' => Venda::find(),
+        ]);
+
+        return $this->render('index2', [
+            'dataProvider' => $dataProvider,
+        ]);
+    }
 
     /**
      * Displays a single Venda model.
@@ -105,6 +116,9 @@ class VendaController extends Controller
 
         return $this->redirect(['index']);
     }
+	
+	
+	
 
     /**
      * Finds the Venda model based on its primary key value.

@@ -70,4 +70,13 @@ class Pessoa extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Usuario::className(), ['COD_PESSOA' => 'COD_PESSOA']);
     }
+
+    /**
+     * @inheritdoc
+     * @return PessoaQuery the active query used by this AR class.
+     */
+    public static function find()
+    {
+        return new PessoaQuery(get_called_class());
+    }
 }

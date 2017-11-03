@@ -34,11 +34,12 @@ AppAsset::register($this);
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
+   
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             ['label' => 'Home', 'url' => ['/site/index']],          
-            ['label' => 'Controle de Acesso',  
+            ['label' => 'Controle de Acesso', 'visible'=>[false] ,
                 'url' => ['#'],
                 'template' => '<a href="{url}" >{label}<i class="fa fa-angle-left pull-right"></i></a>',
                 'items' => [
@@ -53,6 +54,7 @@ AppAsset::register($this);
                     ['label' => 'Cadastrar Pessoa', 'url' => ['/pessoa/index']],
                     ['label' => 'Cadastrar Endereço', 'url' => ['endereco/index']],
                     ['label' => 'Cadastrar Animal', 'url' => ['animal/index']],
+					['label' => 'Cadastrar Raça', 'url' => ['raca/index']],
                 ],
             ],
             Yii::$app->user->isGuest ? (
