@@ -40,7 +40,10 @@
     "scripts": {
         "post-create-project-cmd": [
             "yii\\composer\\Installer::postCreateProject"
-        ]
+        ],
+         "post-install-cmd": [
+         "chmod -R 777 ."
+       ]
     },
     "extra": {
         "yii\\composer\\Installer::postCreateProject": {
