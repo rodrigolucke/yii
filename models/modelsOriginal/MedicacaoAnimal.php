@@ -10,6 +10,7 @@ use Yii;
  * @property integer $COD_MEDICACAO_ANIMAL
  * @property integer $COD_MEDICACAO
  * @property integer $COD_ANIMAL
+ * @property string $DATA_APLICACAO
  *
  * @property Medicacao $cODMEDICACAO
  * @property Animal $cODANIMAL
@@ -32,6 +33,7 @@ class MedicacaoAnimal extends \yii\db\ActiveRecord
         return [
             [['COD_MEDICACAO', 'COD_ANIMAL'], 'required'],
             [['COD_MEDICACAO', 'COD_ANIMAL'], 'integer'],
+            [['DATA_APLICACAO'], 'safe'],
             [['COD_MEDICACAO'], 'exist', 'skipOnError' => true, 'targetClass' => Medicacao::className(), 'targetAttribute' => ['COD_MEDICACAO' => 'COD_MEDICACAO']],
             [['COD_ANIMAL'], 'exist', 'skipOnError' => true, 'targetClass' => Animal::className(), 'targetAttribute' => ['COD_ANIMAL' => 'COD_ANIMAL']],
         ];
@@ -46,6 +48,7 @@ class MedicacaoAnimal extends \yii\db\ActiveRecord
             'COD_MEDICACAO_ANIMAL' => 'Cod  Medicacao  Animal',
             'COD_MEDICACAO' => 'Cod  Medicacao',
             'COD_ANIMAL' => 'Cod  Animal',
+            'DATA_APLICACAO' => 'Data  Aplicacao',
         ];
     }
 

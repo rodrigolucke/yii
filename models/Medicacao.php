@@ -9,6 +9,7 @@ use Yii;
  *
  * @property integer $COD_MEDICACAO
  * @property string $DESCR
+ * @property integer $TEMPO_VALIDADE_MESES
  *
  * @property MedicacaoAnimal[] $medicacaoAnimals
  */
@@ -28,6 +29,7 @@ class Medicacao extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['TEMPO_VALIDADE_MESES'], 'integer'],
             [['DESCR'], 'string', 'max' => 60],
         ];
     }
@@ -40,6 +42,7 @@ class Medicacao extends \yii\db\ActiveRecord
         return [
             'COD_MEDICACAO' => 'Cod  Medicacao',
             'DESCR' => 'Descr',
+            'TEMPO_VALIDADE_MESES' => 'Tempo  Validade  Meses',
         ];
     }
 
