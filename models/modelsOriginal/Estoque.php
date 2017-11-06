@@ -9,7 +9,9 @@ use Yii;
  *
  * @property integer $COD_ESTOQUE
  * @property string $CAPACIDADE
- * @property string $DESCR
+ * @property string $RESERVADO
+ * @property string $LOCALIZACAO
+ * @property string $GORDURA
  *
  * @property MovimentoEstoque[] $movimentoEstoques
  */
@@ -29,8 +31,8 @@ class Estoque extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['CAPACIDADE'], 'number'],
-            [['DESCR'], 'string', 'max' => 60],
+            [['CAPACIDADE', 'RESERVADO', 'GORDURA'], 'number'],
+            [['LOCALIZACAO'], 'string', 'max' => 30],
         ];
     }
 
@@ -42,7 +44,9 @@ class Estoque extends \yii\db\ActiveRecord
         return [
             'COD_ESTOQUE' => 'Cod  Estoque',
             'CAPACIDADE' => 'Capacidade',
-            'DESCR' => 'Descr',
+            'RESERVADO' => 'Reservado',
+            'LOCALIZACAO' => 'Localizacao',
+            'GORDURA' => 'Gordura',
         ];
     }
 
