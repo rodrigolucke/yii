@@ -16,10 +16,7 @@ use Yii;
  *
  * @property HistoricoColeta[] $historicoColetas
  * @property Menu[] $menus
- * @property MovimentoEstoque[] $movimentoEstoques
- * @property PrecoLeite[] $precoLeites
  * @property Pessoa $cODPESSOA
- * @property Venda[] $vendas
  */
 class Usuario extends \yii\db\ActiveRecord
 {
@@ -80,32 +77,17 @@ class Usuario extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getMovimentoEstoques()
-    {
-        return $this->hasMany(MovimentoEstoque::className(), ['COD_USUARIO' => 'COD_USUARIO']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getPrecoLeites()
-    {
-        return $this->hasMany(PrecoLeite::className(), ['COD_USUARIO' => 'COD_USUARIO']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
     public function getCODPESSOA()
     {
         return $this->hasOne(Pessoa::className(), ['COD_PESSOA' => 'COD_PESSOA']);
     }
 
     /**
-     * @return \yii\db\ActiveQuery
+     * @inheritdoc
+     * @return UsuarioQuery the active query used by this AR class.
      */
-    public function getVendas()
+    public static function find()
     {
-        return $this->hasMany(Venda::className(), ['COD_USUARIO' => 'COD_USUARIO']);
+        return new UsuarioQuery(get_called_class());
     }
 }

@@ -25,10 +25,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'COD_EMPRESA',
             'PRECO_LITRO',
             'QUANTIDADE',
-            'DT_VENDA',
+            'DATA_VENDA',
+            // 'DATA_ENTREGA',
             // 'COD_MOVIMENTO_ESTOQUE',
-            // 'COD_PRECO_LEITE',
-            // 'COD_USUARIO',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

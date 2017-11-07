@@ -4,19 +4,19 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Raca */
+/* @var $model app\models\Status */
 
-$this->title = $model->COD_RACA;
-$this->params['breadcrumbs'][] = ['label' => 'Racas', 'url' => ['index']];
+$this->title = $model->COD_STATUS;
+$this->params['breadcrumbs'][] = ['label' => 'Statuses', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="raca-view">
+<div class="status-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->COD_RACA], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->COD_RACA], [
+        <?= Html::a('Update', ['update', 'id' => $model->COD_STATUS], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Delete', ['delete', 'id' => $model->COD_STATUS], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
@@ -28,8 +28,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'COD_RACA',
-            'DESCRICAO',
+            'COD_STATUS',
+            'DESCRICAO_STATUS',
         ],
     ]) ?>
 

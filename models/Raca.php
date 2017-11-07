@@ -8,7 +8,7 @@ use Yii;
  * This is the model class for table "raca".
  *
  * @property integer $COD_RACA
- * @property string $DESCR
+ * @property string $DESCRICAO
  *
  * @property Animal[] $animals
  */
@@ -28,7 +28,7 @@ class Raca extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['DESCR'], 'string', 'max' => 60],
+            [['DESCRICAO'], 'string', 'max' => 60],
         ];
     }
 
@@ -38,8 +38,8 @@ class Raca extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'COD_RACA' => 'Cod  Raca',
-            'DESCR' => 'Descr',
+            'COD_RACA' => 'Código',
+            'DESCRICAO' => 'Descrição',
         ];
     }
 
@@ -49,5 +49,14 @@ class Raca extends \yii\db\ActiveRecord
     public function getAnimals()
     {
         return $this->hasMany(Animal::className(), ['COD_RACA' => 'COD_RACA']);
+    }
+
+    /**
+     * @inheritdoc
+     * @return RacaQuery the active query used by this AR class.
+     */
+    public static function find()
+    {
+        return new RacaQuery(get_called_class());
     }
 }

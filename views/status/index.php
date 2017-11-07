@@ -6,23 +6,23 @@ use yii\grid\GridView;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Raças';
+$this->title = 'Statuses';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="raca-index">
+<div class="status-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Raça', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Status', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'COD_RACA',
-            'DESCRICAO',
+            'COD_STATUS',
+            'DESCRICAO_STATUS',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

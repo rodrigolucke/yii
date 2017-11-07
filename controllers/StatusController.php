@@ -3,16 +3,16 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Venda;
+use app\models\Status;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * VendaController implements the CRUD actions for Venda model.
+ * StatusController implements the CRUD actions for Status model.
  */
-class VendaController extends Controller
+class StatusController extends Controller
 {
     /**
      * @inheritdoc
@@ -30,34 +30,22 @@ class VendaController extends Controller
     }
 
     /**
-     * Lists all Venda models.
+     * Lists all Status models.
      * @return mixed
      */
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => Venda::find(),
+            'query' => Status::find(),
         ]);
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,
         ]);
     }
-    
-    
-     public function actionRelatorio()
-    {
-        $dataProvider = new ActiveDataProvider([
-            'query' => Venda::find(),
-        ]);
-
-        return $this->redirect('relatorioVendaFiltros', [
-           // 'dataProvider' => $dataProvider,
-        ]);
-    }
 
     /**
-     * Displays a single Venda model.
+     * Displays a single Status model.
      * @param integer $id
      * @return mixed
      */
@@ -69,16 +57,16 @@ class VendaController extends Controller
     }
 
     /**
-     * Creates a new Venda model.
+     * Creates a new Status model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Venda();
+        $model = new Status();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->COD_VENDA]);
+            return $this->redirect(['view', 'id' => $model->COD_STATUS]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -87,7 +75,7 @@ class VendaController extends Controller
     }
 
     /**
-     * Updates an existing Venda model.
+     * Updates an existing Status model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -97,7 +85,7 @@ class VendaController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->COD_VENDA]);
+            return $this->redirect(['view', 'id' => $model->COD_STATUS]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -106,7 +94,7 @@ class VendaController extends Controller
     }
 
     /**
-     * Deletes an existing Venda model.
+     * Deletes an existing Status model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -119,15 +107,15 @@ class VendaController extends Controller
     }
 
     /**
-     * Finds the Venda model based on its primary key value.
+     * Finds the Status model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Venda the loaded model
+     * @return Status the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Venda::findOne($id)) !== null) {
+        if (($model = Status::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

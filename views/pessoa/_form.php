@@ -21,6 +21,9 @@ use yii\widgets\ActiveForm;
     
     
     <?= $form->field($model, 'COD_ENDERECO')->dropDownList(ArrayHelper::map(\app\models\Endereco::find()->all(), 'COD_ENDERECO', 'RUA'), ['prompt'=>'']) ?>
+    <p>
+        <?= Html::a('Cadastrar Endereço', ['endereco/create'], ['class' => 'btn btn-info']) ?>
+    </p>
    
 
     <div class="form-group">

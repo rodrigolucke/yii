@@ -18,13 +18,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'QUANTIDADE')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'DT_VENDA')->textInput() ?>
+    <?= $form->field($model, 'DATA_VENDA')->textInput() ?>
+
+    <?= $form->field($model, 'DATA_ENTREGA')->textInput() ?>
 
     <?= $form->field($model, 'COD_MOVIMENTO_ESTOQUE')->textInput() ?>
-
-    <?= $form->field($model, 'COD_PRECO_LEITE')->textInput() ?>
-
-    <?= $form->field($model, 'COD_USUARIO')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

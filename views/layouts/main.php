@@ -44,6 +44,7 @@ AppAsset::register($this);
                 'template' => '<a href="{url}" >{label}<i class="fa fa-angle-left pull-right"></i></a>',
                 'items' => [
                     ['label' => 'Cadastrar Menu', 'url' => ['/menu/index']],
+                     ['label' => 'Cadastrar Usuário', 'url' => ['/usuario/index']],
                   
                 ],
             ],

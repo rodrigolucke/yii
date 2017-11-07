@@ -74,4 +74,13 @@ class Venda extends \yii\db\ActiveRecord
     {
         return $this->hasOne(MovimentoEstoque::className(), ['COD_MOVIMENTO_ESTOQUE' => 'COD_MOVIMENTO_ESTOQUE']);
     }
+
+    /**
+     * @inheritdoc
+     * @return VendaQuery the active query used by this AR class.
+     */
+    public static function find()
+    {
+        return new VendaQuery(get_called_class());
+    }
 }
