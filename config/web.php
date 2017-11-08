@@ -54,7 +54,8 @@ $config = [
     ],
     'params' => $params,
 ];
-/*YII_ENV_DEV = false;
+define('YII_ENV_DEV',false);
+var_dump(YII_ENV_DEV);
 if (YII_ENV_DEV) {
     // configuration adjustments for 'dev' environment
     $config['bootstrap'][] = 'debug';
@@ -70,7 +71,7 @@ if (YII_ENV_DEV) {
         // uncomment the following to add your IP if you are not connecting from localhost.
         'allowedIPs' => ['*'],
     ];
-$config['bootstrap'][] = 'debug';
+/*$config['bootstrap'][] = 'debug';
 $config['modules']['debug']['class'] = 'yii\debug\Module';
 $config['modules']['debug']['allowedIPs'] = ['*'];
 $config['bootstrap'][] = 'gii';    
