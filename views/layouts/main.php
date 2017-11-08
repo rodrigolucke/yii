@@ -57,7 +57,7 @@ AppAsset::register($this);
                     ['label' => 'Cadastrar Movimentos', 'url' => ['/movimento-estoque/index']],
                     ['label' => 'Cadastrar Medicação Para Animal', 'url' => ['/medicacao-animal/index']],
                     ['label' => 'Cadastrar Preço Leite', 'url' => ['/preco-leite/index']],
-                    ['label' => 'Cadastrar Lote Animal', 'url' => ['/lote-animal/index']],
+                    ['label' => 'Cadastrar Lote Animal', 'url' => ['/lote-animais/index']],
                     ['label' => 'Historico Coleta', 'url' => ['/historico-coleta/index']],
                     
                    
