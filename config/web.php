@@ -54,7 +54,7 @@ $config = [
     ],
     'params' => $params,
 ];
-YII_ENV_DEV = true;
+YII_ENV_DEV = false;
 if (YII_ENV_DEV) {
     // configuration adjustments for 'dev' environment
     $config['bootstrap'][] = 'debug';
