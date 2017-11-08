@@ -44,19 +44,41 @@ AppAsset::register($this);
                 'template' => '<a href="{url}" >{label}<i class="fa fa-angle-left pull-right"></i></a>',
                 'items' => [
                     ['label' => 'Cadastrar Menu', 'url' => ['/menu/index']],
-                     ['label' => 'Cadastrar Usuário', 'url' => ['/usuario/index']],
+                    ['label' => 'Cadastrar Usuário', 'url' => ['/usuario/index']],
+                    ['label' => 'Cadastrar Perfil', 'url' => ['/perfil/index']],
                   
                 ],
             ],
             ['label' => 'Menu Principal',  
                 'url' => ['#'],
                 'template' => '<a href="{url}" >{label}<i class="fa fa-angle-left pull-right"></i></a>',
-                'items' => [
-                    ['label' => 'Cadastrar Pessoa', 'url' => ['/pessoa/index']],
-                    ['label' => 'Cadastrar Endereço', 'url' => ['endereco/index']],
-                    ['label' => 'Cadastrar Animal', 'url' => ['animal/index']],
-					['label' => 'Cadastrar Raça', 'url' => ['raca/index']],
+                'items' => [                 
+                     
+                    ['label' => 'Cadastrar Movimentos', 'url' => ['/movimento-estoque/index']],
+                    ['label' => 'Cadastrar Medicação Para Animal', 'url' => ['/medicacao-animal/index']],
+                    ['label' => 'Cadastrar Preço Leite', 'url' => ['/preco-leite/index']],
+                    ['label' => 'Cadastrar Lote Animal', 'url' => ['/lote-animal/index']],
+                    ['label' => 'Historico Coleta', 'url' => ['/historico-coleta/index']],
+                    
+                   
                 ],
+                
+            ],
+            
+            ['label' => 'Cadastros Básicos',  
+                'url' => ['#'],
+                'template' => '<a href="{url}" >{label}<i class="fa fa-angle-left pull-right"></i></a>',
+                'items' => [
+                    ['label' => 'Cadastrar Empresa', 'url' => ['empresa/index']],  
+                    ['label' => 'Cadastrar Endereço', 'url' => ['endereco/index']],
+                    ['label' => 'Cadastrar Pessoa', 'url' => ['/pessoa/index']],
+                    ['label' => 'Cadastrar Raça', 'url' => ['raca/index']],
+                    ['label' => 'Cadastrar Animal', 'url' => ['animal/index']],   
+                    ['label' => 'Cadastrar Medicação', 'url' => ['medicacao/index']],  
+                    ['label' => 'Cadastrar Tipo Movimento', 'url' => ['tipo-movimento-estoque/index']],  
+                    ['label' => 'Cadastrar Equipamento', 'url' => ['equipamento/index']],  
+                ],
+                
             ],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
