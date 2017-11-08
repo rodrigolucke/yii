@@ -77,5 +77,5 @@ $config['bootstrap'][] = 'gii';
 $config['modules']['gii']['class'] = 'yii\gii\Module';
 $config['modules']['gii']['allowedIPs'] = ['*'];
 }*/
-
+}
 return $config;
