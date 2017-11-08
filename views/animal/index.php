@@ -23,8 +23,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'COD_ANIMAL',
             'COD_RACA',
-            'DT_NASCIMENTO',
-            'DT_FALECIMENTO',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

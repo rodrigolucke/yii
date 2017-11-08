@@ -9,11 +9,9 @@ use Yii;
  *
  * @property integer $COD_ANIMAL
  * @property integer $COD_RACA
- * @property string $DT_NASCIMENTO
- * @property string $DT_FALECIMENTO
  *
  * @property Raca $cODRACA
- * @property LoteAnimal[] $loteAnimals
+ * @property LoteAnimais[] $loteAnimais
  * @property MedicacaoAnimal[] $medicacaoAnimals
  */
 class Animal extends \yii\db\ActiveRecord
@@ -34,7 +32,6 @@ class Animal extends \yii\db\ActiveRecord
         return [
             [['COD_RACA'], 'required'],
             [['COD_RACA'], 'integer'],
-            [['DT_NASCIMENTO', 'DT_FALECIMENTO'], 'safe'],
             [['COD_RACA'], 'exist', 'skipOnError' => true, 'targetClass' => Raca::className(), 'targetAttribute' => ['COD_RACA' => 'COD_RACA']],
         ];
     }
@@ -47,8 +44,6 @@ class Animal extends \yii\db\ActiveRecord
         return [
             'COD_ANIMAL' => 'Cod  Animal',
             'COD_RACA' => 'Cod  Raca',
-            'DT_NASCIMENTO' => 'Dt  Nascimento',
-            'DT_FALECIMENTO' => 'Dt  Falecimento',
         ];
     }
 
@@ -63,9 +58,9 @@ class Animal extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getLoteAnimals()
+    public function getLoteAnimais()
     {
-        return $this->hasMany(LoteAnimal::className(), ['COD_ANIMAL' => 'COD_ANIMAL']);
+        return $this->hasMany(LoteAnimais::className(), ['COD_ANIMAL' => 'COD_ANIMAL']);
     }
 
     /**
