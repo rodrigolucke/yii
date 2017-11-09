@@ -37,7 +37,7 @@ class Usuario extends \yii\db\ActiveRecord
             [['DATA_CADASTRO'], 'safe'],
             [['ATIVO', 'COD_PESSOA'], 'integer'],
             [['COD_PESSOA'], 'required'],
-            [['USUARIO', 'SENHA'], 'string', 'max' => 10],
+            [['USUARIO', 'SENHA'], 'string', 'max' => 10 ,'min'=>5],
             [['USUARIO'], 'unique'],
             [['COD_PESSOA'], 'exist', 'skipOnError' => true, 'targetClass' => Pessoa::className(), 'targetAttribute' => ['COD_PESSOA' => 'COD_PESSOA']],
         ];
