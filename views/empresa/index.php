@@ -24,6 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'COD_EMPRESA',
             'NOME_EMPRESA',
             'CNPJ',
+            'COD_ENDERECO',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

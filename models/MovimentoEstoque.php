@@ -8,12 +8,13 @@ use Yii;
  * This is the model class for table "movimento_estoque".
  *
  * @property integer $COD_MOVIMENTO_ESTOQUE
- * @property string $TIPO_MOVIMENTO
+ * @property integer $TIPO_MOVIMENTO
  * @property string $DATA_HISTORICO
  * @property integer $COD_ESTOQUE
  *
  * @property HistoricoColeta[] $historicoColetas
  * @property Estoque $cODESTOQUE
+ * @property TipoMovimentoEstoque $tIPOMOVIMENTO
  * @property Venda[] $vendas
  */
 class MovimentoEstoque extends \yii\db\ActiveRecord
@@ -32,11 +33,11 @@ class MovimentoEstoque extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['TIPO_MOVIMENTO', 'COD_ESTOQUE'], 'integer'],
             [['DATA_HISTORICO'], 'safe'],
             [['COD_ESTOQUE'], 'required'],
-            [['COD_ESTOQUE'], 'integer'],
-            [['TIPO_MOVIMENTO'], 'string', 'max' => 1],
             [['COD_ESTOQUE'], 'exist', 'skipOnError' => true, 'targetClass' => Estoque::className(), 'targetAttribute' => ['COD_ESTOQUE' => 'COD_ESTOQUE']],
+            [['TIPO_MOVIMENTO'], 'exist', 'skipOnError' => true, 'targetClass' => TipoMovimentoEstoque::className(), 'targetAttribute' => ['TIPO_MOVIMENTO' => 'COD_TIPO_MOVIMENTO_ESTOQUE']],
         ];
     }
 
@@ -67,6 +68,14 @@ class MovimentoEstoque extends \yii\db\ActiveRecord
     public function getCODESTOQUE()
     {
         return $this->hasOne(Estoque::className(), ['COD_ESTOQUE' => 'COD_ESTOQUE']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getTIPOMOVIMENTO()
+    {
+        return $this->hasOne(TipoMovimentoEstoque::className(), ['COD_TIPO_MOVIMENTO_ESTOQUE' => 'TIPO_MOVIMENTO']);
     }
 
     /**

@@ -10,7 +10,9 @@ use Yii;
  * @property integer $COD_EMPRESA
  * @property string $NOME_EMPRESA
  * @property string $CNPJ
+ * @property integer $COD_ENDERECO
  *
+ * @property Endereco $cODENDERECO
  * @property Venda[] $vendas
  */
 class Empresa extends \yii\db\ActiveRecord
@@ -29,9 +31,11 @@ class Empresa extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['CNPJ'], 'required'],
+            [['COD_ENDERECO'], 'required'],
+            [['COD_ENDERECO'], 'integer'],
             [['NOME_EMPRESA'], 'string', 'max' => 60],
             [['CNPJ'], 'string', 'max' => 14],
+            [['COD_ENDERECO'], 'exist', 'skipOnError' => true, 'targetClass' => Endereco::className(), 'targetAttribute' => ['COD_ENDERECO' => 'COD_ENDERECO']],
         ];
     }
 
@@ -44,7 +48,16 @@ class Empresa extends \yii\db\ActiveRecord
             'COD_EMPRESA' => 'Cod  Empresa',
             'NOME_EMPRESA' => 'Nome  Empresa',
             'CNPJ' => 'Cnpj',
+            'COD_ENDERECO' => 'Cod  Endereco',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCODENDERECO()
+    {
+        return $this->hasOne(Endereco::className(), ['COD_ENDERECO' => 'COD_ENDERECO']);
     }
 
     /**
