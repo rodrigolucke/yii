@@ -22,10 +22,9 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'COD_MOVIMENTO_ESTOQUE',
-            'COD_TIPO_MOVIMENTO_ESTOQUE',
+            'TIPO_MOVIMENTO',
             'DATA_HISTORICO',
             'COD_ESTOQUE',
-            'COD_USUARIO',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

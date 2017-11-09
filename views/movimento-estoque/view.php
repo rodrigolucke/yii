@@ -29,10 +29,9 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'COD_MOVIMENTO_ESTOQUE',
-            'COD_TIPO_MOVIMENTO_ESTOQUE',
+            'TIPO_MOVIMENTO',
             'DATA_HISTORICO',
             'COD_ESTOQUE',
-            'COD_USUARIO',
         ],
     ]) ?>
 
