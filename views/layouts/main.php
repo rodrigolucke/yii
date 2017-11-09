@@ -33,6 +33,7 @@ AppAsset::register($this);
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
+        
     ]);
    
     echo Nav::widget([
@@ -46,8 +47,12 @@ AppAsset::register($this);
                     ['label' => 'Cadastrar Menu', 'url' => ['/menu/index']],
                     ['label' => 'Cadastrar Usuário', 'url' => ['/usuario/index']],
                     ['label' => 'Cadastrar Perfil', 'url' => ['/perfil/index']],
+                     ['label' => 'Cadastrar Perfil Menu', 'url' => ['/perfil-pessoa/index']],
+                    ['label' => 'Cadastrar Perfil Pessoa', 'url' => ['/perfil-menu/index']],
+                   
                   
                 ],
+                'visible'=>!Yii::$app->user->isGuest,
             ],
             ['label' => 'Menu Principal',  
                 'url' => ['#'],
@@ -62,7 +67,7 @@ AppAsset::register($this);
                     
                    
                 ],
-                
+                'visible'=>!Yii::$app->user->isGuest,
             ],
             
             ['label' => 'Cadastros Básicos',  
@@ -78,7 +83,7 @@ AppAsset::register($this);
                     ['label' => 'Cadastrar Tipo Movimento', 'url' => ['tipo-movimento-estoque/index']],  
                     ['label' => 'Cadastrar Equipamento', 'url' => ['equipamento/index']],  
                 ],
-                
+                'visible'=>!Yii::$app->user->isGuest,
             ],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
