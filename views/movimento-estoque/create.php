@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\MovimentoEstoque */
 
-$this->title = 'Create Movimento Estoque';
+$this->title = 'Incluir Movimento Estoque';
 $this->params['breadcrumbs'][] = ['label' => 'Movimento Estoques', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
