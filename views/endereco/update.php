@@ -8,7 +8,7 @@ use yii\helpers\Html;
 $this->title = 'Alterar Endereço: ' . $model->COD_ENDERECO;
 $this->params['breadcrumbs'][] = ['label' => 'Enderecos', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->COD_ENDERECO, 'url' => ['view', 'id' => $model->COD_ENDERECO]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = 'Salvar';
 ?>
 <div class="endereco-update">
 
