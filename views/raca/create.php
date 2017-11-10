@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Raca */
 
-$this->title = 'Create Raca';
+$this->title = 'Incluir Raca';
 $this->params['breadcrumbs'][] = ['label' => 'Racas', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
