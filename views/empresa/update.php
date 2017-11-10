@@ -8,7 +8,7 @@ use yii\helpers\Html;
 $this->title = 'Alterar Empresa: ' . $model->COD_EMPRESA;
 $this->params['breadcrumbs'][] = ['label' => 'Empresas', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->COD_EMPRESA, 'url' => ['view', 'id' => $model->COD_EMPRESA]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = 'Salvar';
 ?>
 <div class="empresa-update">
 
