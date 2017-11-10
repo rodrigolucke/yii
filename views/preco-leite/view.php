@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model app\models\PrecoLeite */
 
 $this->title = $model->COD_PRECO_LEITE;
-$this->params['breadcrumbs'][] = ['label' => 'Preco Leites', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Preco Leite', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="preco-leite-view">
