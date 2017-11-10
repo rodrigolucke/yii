@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model app\models\LoteAnimal */
 
 $this->title = $model->COD_LOTE_ANIMAL;
-$this->params['breadcrumbs'][] = ['label' => 'Lote Animals', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Lote Animais', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="lote-animal-view">
