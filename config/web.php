@@ -5,7 +5,7 @@ $db = require(__DIR__ . '/db.php');
 
 $config = [
     'id' => 'basic',
-    'sourceLanguage' => 'pt-br',
+    'sourceLanguage' =>'pt-br',
     'language' => 'pt-br',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
