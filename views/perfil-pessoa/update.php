@@ -5,10 +5,10 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\PerfilPessoa */
 
-$this->title = 'Update Perfil Pessoa: ' . $model->SEQ_PERFIL_PESSOA;
+$this->title = 'Editar Perfil Pessoa: ' . $model->SEQ_PERFIL_PESSOA;
 $this->params['breadcrumbs'][] = ['label' => 'Perfil Pessoas', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->SEQ_PERFIL_PESSOA, 'url' => ['view', 'id' => $model->SEQ_PERFIL_PESSOA]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = 'Editar';
 ?>
 <div class="perfil-pessoa-update">
 
