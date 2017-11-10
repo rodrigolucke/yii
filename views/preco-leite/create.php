@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\PrecoLeite */
 
-$this->title = 'Create Preco Leite';
+$this->title = 'Incluir Preco Leite';
 $this->params['breadcrumbs'][] = ['label' => 'Preco Leites', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
