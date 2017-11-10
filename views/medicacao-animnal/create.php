@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\MedicacaoAnimal */
 
-$this->title = 'Create Medicacao Animal';
-$this->params['breadcrumbs'][] = ['label' => 'Medicacao Animals', 'url' => ['index']];
+$this->title = 'Incluir Medicação Animal';
+$this->params['breadcrumbs'][] = ['label' => 'Medicação Animais', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="medicacao-animal-create">

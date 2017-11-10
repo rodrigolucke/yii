@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\MedicacaoAnimal */
 
-$this->title = 'Update Medicacao Animal: ' . $model->COD_MEDICACAO_ANIMAL;
-$this->params['breadcrumbs'][] = ['label' => 'Medicacao Animals', 'url' => ['index']];
+$this->title = 'Editar Medicacao Animal: ' . $model->COD_MEDICACAO_ANIMAL;
+$this->params['breadcrumbs'][] = ['label' => 'Medicacao Animais', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->COD_MEDICACAO_ANIMAL, 'url' => ['view', 'id' => $model->COD_MEDICACAO_ANIMAL]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>

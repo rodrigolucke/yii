@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Endereco */
 
-$this->title = 'Update Endereco: ' . $model->COD_ENDERECO;
+$this->title = 'Alterar Endereço: ' . $model->COD_ENDERECO;
 $this->params['breadcrumbs'][] = ['label' => 'Enderecos', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->COD_ENDERECO, 'url' => ['view', 'id' => $model->COD_ENDERECO]];
 $this->params['breadcrumbs'][] = 'Update';
