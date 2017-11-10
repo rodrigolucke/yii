@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\PerfilMenu */
 
-$this->title = 'Create Perfil Menu';
+$this->title = 'Incluir Perfil Menu';
 $this->params['breadcrumbs'][] = ['label' => 'Perfil Menus', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
