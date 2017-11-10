@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\LoteAnimal */
 
-$this->title = 'Create Lote Animal';
+$this->title = 'Incluir Lote Animal';
 $this->params['breadcrumbs'][] = ['label' => 'Lote Animals', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
