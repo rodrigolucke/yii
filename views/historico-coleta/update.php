@@ -5,10 +5,10 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\HistoricoColeta */
 
-$this->title = 'Update Historico Coleta: ' . $model->COD_HISTORICO_COLETA;
+$this->title = 'Editar Historico Coleta: ' . $model->COD_HISTORICO_COLETA;
 $this->params['breadcrumbs'][] = ['label' => 'Historico Coletas', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->COD_HISTORICO_COLETA, 'url' => ['view', 'id' => $model->COD_HISTORICO_COLETA]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = 'Editar';
 ?>
 <div class="historico-coleta-update">
 
