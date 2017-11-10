@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model app\models\Animal */
 
 $this->title = $model->COD_ANIMAL;
-$this->params['breadcrumbs'][] = ['label' => 'Animals', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Animais', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="animal-view">
@@ -16,10 +16,12 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a('Editar', ['update', 'id' => $model->COD_ANIMAL], ['class' => 'btn btn-primary']) ?>
+
         <?= Html::a('Deletar', ['delete', 'id' => $model->COD_ANIMAL], [
+
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => 'Você tem certeza que deseja deletar este item?',
                 'method' => 'post',
             ],
         ]) ?>
