@@ -8,7 +8,7 @@ use yii\helpers\Html;
 $this->title = 'Editar Medicacao Animal: ' . $model->COD_MEDICACAO_ANIMAL;
 $this->params['breadcrumbs'][] = ['label' => 'Medicacao Animais', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->COD_MEDICACAO_ANIMAL, 'url' => ['view', 'id' => $model->COD_MEDICACAO_ANIMAL]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = 'Editar';
 ?>
 <div class="medicacao-animal-update">
 
