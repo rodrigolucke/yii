@@ -5,10 +5,10 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\PrecoLeite */
 
-$this->title = 'Update Preco Leite: ' . $model->COD_PRECO_LEITE;
+$this->title = 'Editar Preco Leite: ' . $model->COD_PRECO_LEITE;
 $this->params['breadcrumbs'][] = ['label' => 'Preco Leites', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->COD_PRECO_LEITE, 'url' => ['view', 'id' => $model->COD_PRECO_LEITE]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = 'Editar';
 ?>
 <div class="preco-leite-update">
 
