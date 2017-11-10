@@ -8,7 +8,7 @@ use yii\helpers\Html;
 $this->title = 'Editar Equipamento: ' . $model->COD_EQUIPAMENTO;
 $this->params['breadcrumbs'][] = ['label' => 'Equipamentos', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->COD_EQUIPAMENTO, 'url' => ['view', 'id' => $model->COD_EQUIPAMENTO]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = 'Editar';
 ?>
 <div class="equipamento-update">
 
