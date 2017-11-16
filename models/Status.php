@@ -8,7 +8,9 @@ use Yii;
  * This is the model class for table "status".
  *
  * @property integer $COD_STATUS
- * @property string $DESCRICAO_STATUS
+ * @property string $DESCRICAO
+ *
+ * @property Usuario[] $usuarios
  */
 class Status extends \yii\db\ActiveRecord
 {
@@ -26,7 +28,7 @@ class Status extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['DESCRICAO_STATUS'], 'string', 'max' => 30],
+            [['DESCRICAO'], 'string', 'max' => 30],
         ];
     }
 
@@ -37,7 +39,15 @@ class Status extends \yii\db\ActiveRecord
     {
         return [
             'COD_STATUS' => 'Cod  Status',
-            'DESCRICAO_STATUS' => 'Descricao  Status',
+            'DESCRICAO' => 'Descricao',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUsuarios()
+    {
+        return $this->hasMany(Usuario::className(), ['COD_STATUS' => 'COD_STATUS']);
     }
 }
