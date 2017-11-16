@@ -19,7 +19,7 @@ use Yii;
  * @property Pessoa $cODPESSOA
  * @property Status $cODSTATUS
  */
-class Usuario extends \yii\db\ActiveRecord
+class Usuario extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
 {
     /**
      * @inheritdoc
