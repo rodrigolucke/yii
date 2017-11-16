@@ -5,23 +5,23 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "perfil_pessoa".
+ * This is the model class for table "perfil_usuario".
  *
  * @property integer $SEQ_PERFIL_PESSOA
  * @property integer $COD_PERFIL
- * @property integer $COD_PESSOA
+ * @property integer $COD_USUARIO
  *
- * @property Pessoa $cODPESSOA
+ * @property Usuario $cODUSUARIO
  * @property Perfil $cODPERFIL
  */
-class PerfilPessoa extends \yii\db\ActiveRecord
+class PerfilUsuario extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'perfil_pessoa';
+        return 'perfil_usuario';
     }
 
     /**
@@ -30,8 +30,8 @@ class PerfilPessoa extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['COD_PERFIL', 'COD_PESSOA'], 'integer'],
-            [['COD_PESSOA'], 'exist', 'skipOnError' => true, 'targetClass' => Pessoa::className(), 'targetAttribute' => ['COD_PESSOA' => 'COD_PESSOA']],
+            [['COD_PERFIL', 'COD_USUARIO'], 'integer'],
+            [['COD_USUARIO'], 'exist', 'skipOnError' => true, 'targetClass' => Usuario::className(), 'targetAttribute' => ['COD_USUARIO' => 'COD_USUARIO']],
             [['COD_PERFIL'], 'exist', 'skipOnError' => true, 'targetClass' => Perfil::className(), 'targetAttribute' => ['COD_PERFIL' => 'COD_PERFIL']],
         ];
     }
@@ -44,16 +44,16 @@ class PerfilPessoa extends \yii\db\ActiveRecord
         return [
             'SEQ_PERFIL_PESSOA' => 'Seq  Perfil  Pessoa',
             'COD_PERFIL' => 'Cod  Perfil',
-            'COD_PESSOA' => 'Cod  Pessoa',
+            'COD_USUARIO' => 'Cod  Usuario',
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getCODPESSOA()
+    public function getCODUSUARIO()
     {
-        return $this->hasOne(Pessoa::className(), ['COD_PESSOA' => 'COD_PESSOA']);
+        return $this->hasOne(Usuario::className(), ['COD_USUARIO' => 'COD_USUARIO']);
     }
 
     /**

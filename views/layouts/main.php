@@ -77,6 +77,10 @@ AppAsset::register($this);
                     ['label' => 'Cadastrar Empresa', 'url' => ['empresa/index']],  
                     ['label' => 'Cadastrar Endereço', 'url' => ['endereco/index']],
                     ['label' => 'Cadastrar Pessoa', 'url' => ['/pessoa/index']],
+                    ['label' => 'Cadastrar Usuario', 'url' => ['/usuario/index']],
+                    ['label' => 'Cadastrar Perfil', 'url' => ['/perfil/index']],
+                    ['label' => 'Cadastrar Menu Perfil', 'url' => ['/perfil-menu/index']],
+                    ['label' => 'Cadastrar Perfil Usuário', 'url' => ['/perfil-usuario/index']],
                     ['label' => 'Cadastrar Raça', 'url' => ['raca/index']],
                     ['label' => 'Cadastrar Animal', 'url' => ['animal/index']],   
                     ['label' => 'Cadastrar Medicação', 'url' => ['medicacao/index']],  
@@ -92,7 +96,7 @@ AppAsset::register($this);
                 . Html::beginForm(['/site/logout'], 'post')
                 . Html::submitButton(
                     //'Logout (' . Yii::$app->user->identity->username . ')',
-					'Logout (' . Yii::$app->user->identity->USUARIO . ')',
+                       'Logout (' . Yii::$app->user->identity->USUARIO . ')', 
                     ['class' => 'btn btn-link logout']
                 )
                 . Html::endForm()

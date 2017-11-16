@@ -1,6 +1,7 @@
 <?php
 
 namespace app\models;
+use yii\base\NotSupportedException;
 
 use Yii;
 
@@ -18,7 +19,7 @@ use Yii;
  * @property Menu[] $menus
  * @property Pessoa $cODPESSOA
  */
-class Usuario extends \yii\db\ActiveRecord
+class Usuario extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
 {
     /**
      * @inheritdoc
@@ -90,4 +91,41 @@ class Usuario extends \yii\db\ActiveRecord
     {
         return new UsuarioQuery(get_called_class());
     }
+	
+	
+    public function getId()
+    {
+        return $this->COD_USUARIO;
+    }
+	
+    public function getAuthKey()
+    {
+        return $this->COD_PESSOA;
+    }
+	
+    public function validateAuthKey($authKey)
+    {
+        return true;
+    }			
+	
+    public static function findIdentity($id)
+    {
+        return self::findOne(['COD_USUARIO'=>$id]);
+    }
+	
+    public static function findIdentityByAccessToken($token, $type = null)
+    {
+ 		throw new NotSupportedException(__METHOD__ . ' is not supported.');
+    }
+	
+    public static function findByUsername($username)
+    {
+    	return self::findOne(['USUARIO'=>$username]);
+    }
+    public function validatePassword($password)
+    {
+        return $this->SENHA === $password;
+    }		
+	
+	
 }

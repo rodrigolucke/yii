@@ -4,22 +4,22 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\PerfilPessoa */
+/* @var $model app\models\PerfilUsuario */
 
 $this->title = $model->SEQ_PERFIL_PESSOA;
-$this->params['breadcrumbs'][] = ['label' => 'Perfil Pessoas', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Perfil Usuarios', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="perfil-pessoa-view">
+<div class="perfil-usuario-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Editar', ['update', 'id' => $model->SEQ_PERFIL_PESSOA], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Deletar', ['delete', 'id' => $model->SEQ_PERFIL_PESSOA], [
+        <?= Html::a('Update', ['update', 'id' => $model->SEQ_PERFIL_PESSOA], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Delete', ['delete', 'id' => $model->SEQ_PERFIL_PESSOA], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Você tem certeza que deseja deletar este item?',
+                'confirm' => 'Are you sure you want to delete this item?',
                 'method' => 'post',
             ],
         ]) ?>
@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'SEQ_PERFIL_PESSOA',
             'COD_PERFIL',
-            'COD_PESSOA',
+            'COD_USUARIO',
         ],
     ]) ?>
 
