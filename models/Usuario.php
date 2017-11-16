@@ -1,7 +1,6 @@
 <?php
 
 namespace app\models;
-use yii\base\NotSupportedException;
 
 use Yii;
 
@@ -12,14 +11,15 @@ use Yii;
  * @property string $USUARIO
  * @property string $SENHA
  * @property string $DATA_CADASTRO
- * @property integer $ATIVO
+ * @property integer $COD_STATUS
  * @property integer $COD_PESSOA
  *
  * @property HistoricoColeta[] $historicoColetas
- * @property Menu[] $menus
+ * @property PerfilUsuario[] $perfilUsuarios
  * @property Pessoa $cODPESSOA
+ * @property Status $cODSTATUS
  */
-class Usuario extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
+class Usuario extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
@@ -36,11 +36,12 @@ class Usuario extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     {
         return [
             [['DATA_CADASTRO'], 'safe'],
-            [['ATIVO', 'COD_PESSOA'], 'integer'],
-            [['COD_PESSOA'], 'required'],
-            [['USUARIO', 'SENHA'], 'string', 'max' => 10 ,'min'=>5],
+            [['COD_STATUS', 'COD_PESSOA'], 'required'],
+            [['COD_STATUS', 'COD_PESSOA'], 'integer'],
+            [['USUARIO', 'SENHA'], 'string', 'max' => 10],
             [['USUARIO'], 'unique'],
             [['COD_PESSOA'], 'exist', 'skipOnError' => true, 'targetClass' => Pessoa::className(), 'targetAttribute' => ['COD_PESSOA' => 'COD_PESSOA']],
+            [['COD_STATUS'], 'exist', 'skipOnError' => true, 'targetClass' => Status::className(), 'targetAttribute' => ['COD_STATUS' => 'COD_STATUS']],
         ];
     }
 
@@ -54,7 +55,7 @@ class Usuario extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
             'USUARIO' => 'Usuario',
             'SENHA' => 'Senha',
             'DATA_CADASTRO' => 'Data  Cadastro',
-            'ATIVO' => 'Ativo',
+            'COD_STATUS' => 'Cod  Status',
             'COD_PESSOA' => 'Cod  Pessoa',
         ];
     }
@@ -70,9 +71,9 @@ class Usuario extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getMenus()
+    public function getPerfilUsuarios()
     {
-        return $this->hasMany(Menu::className(), ['COD_USUARIO' => 'COD_USUARIO']);
+        return $this->hasMany(PerfilUsuario::className(), ['COD_USUARIO' => 'COD_USUARIO']);
     }
 
     /**
@@ -84,48 +85,54 @@ class Usuario extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     }
 
     /**
-     * @inheritdoc
-     * @return UsuarioQuery the active query used by this AR class.
+     * @return \yii\db\ActiveQuery
      */
-    public static function find()
+    public function getCODSTATUS()
     {
-        return new UsuarioQuery(get_called_class());
+        return $this->hasOne(Status::className(), ['COD_STATUS' => 'COD_STATUS']);
     }
-	
-	
-    public function getId()
-    {
-        return $this->COD_USUARIO;
-    }
-	
-    public function getAuthKey()
-    {
-        return $this->COD_PESSOA;
-    }
-	
-    public function validateAuthKey($authKey)
-    {
-        return true;
-    }			
-	
-    public static function findIdentity($id)
-    {
-        return self::findOne(['COD_USUARIO'=>$id]);
-    }
-	
-    public static function findIdentityByAccessToken($token, $type = null)
-    {
- 		throw new NotSupportedException(__METHOD__ . ' is not supported.');
-    }
-	
-    public static function findByUsername($username)
-    {
-    	return self::findOne(['USUARIO'=>$username]);
-    }
-    public function validatePassword($password)
-    {
-        return $this->SENHA === $password;
-    }		
-	
-	
+    
+    /**
+   * @inheritdoc
+   * @return UsuarioQuery the active query used by this AR class.
+   */
+  public static function find()
+  {
+      return new UsuarioQuery(get_called_class());
+  }
+   
+   
+  public function getId()
+  {
+      return $this->COD_USUARIO;
+  }
+   
+  public function getAuthKey()
+  {
+      return $this->COD_PESSOA;
+  }
+   
+  public function validateAuthKey($authKey)
+  {
+      return true;
+  }           
+   
+  public static function findIdentity($id)
+  {
+      return self::findOne(['COD_USUARIO'=>$id]);
+  }
+   
+  public static function findIdentityByAccessToken($token, $type = null)
+  {
+       throw new NotSupportedException(__METHOD__ . ' is not supported.');
+  }
+   
+  public static function findByUsername($username)
+  {
+      return self::findOne(['USUARIO'=>$username]);
+  }
+  public function validatePassword($password)
+  {
+      return $this->SENHA === $password;
+  }  
 }

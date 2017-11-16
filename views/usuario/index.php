@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'USUARIO',
             'SENHA',
             'DATA_CADASTRO',
-            'ATIVO',
+            'COD_STATUS',
             // 'COD_PESSOA',
 
             ['class' => 'yii\grid\ActionColumn'],
