@@ -1,0 +1,20 @@
+	table{
+		text-align:left;
+		font-family:Verdana, Geneva, sans-serif;
+		font-size:12px;
+		width:740px;
+	}
+	
+	td {
+		border: solid 1px #CCCCCC;		
+		padding:3px;
+	}
+	
+	th{
+		background-color:#FF9;
+		border: solid 1px #CCCCCC;	
+		font-weight:normal;
+		text-align:center;
+		padding:3px;
+	}
+	
