@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\helpers\ArrayHelper;
 
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -21,11 +22,19 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'SEQ_PERFIL_PESSOA',
-            'COD_PERFIL',
-            'COD_USUARIO',
+            'SEQ_PERFIL_PESSOA',     
+            
+             [
+                'attribute' => 'COD_PERFIL',
+                'value' => 'cODPERFIL.DESCR',    
+               // 'filter'=> Html::activeDropDownList( 'COD_PERFIL', ArrayHelper::map(\app\models\Perfil::find()->orderBy('DESCR ASC')->all(), 'COD_PERFIL', 'DESCR'), ['class' => 'form-control', 'prompt' => ''])
+             ],
 
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
+            [
+             'attribute' => 'COD_USUARIO',
+              'value' => 'cODUSUARIO.USUARIO',
+           ],
+                
+         ],
     ]); ?>
 </div>

@@ -135,4 +135,32 @@ class Usuario extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
   {
       return $this->SENHA === $password;
   }  
+  
+  public function buscarPerfisUsuario(){
+    	
+        $perfis = PerfilUsuario::find()->select('COD_PERFIL')->all();
+    	return $perfis;
+    }
+    
+    public function buscarMenusPerfil($perfil) {        
+        $menusDisponiveisPerfil = PerfilMenu::find()->asArray()->where(['COD_PERFIL' => $perfil['COD_PERFIL']])->all();
+        return  $menusDisponiveisPerfil;
+    }
+    
+    
+   public function buscarAcessosPerfil(){       
+       //busca os perfis/grupos que o usuário possui acesso;
+       $perfisUsuario = $this->buscarPerfisUsuario();//perfil é o grupo
+       // buscar os acessos dos grupos do usuario 
+       $arrayMenusDisponiveisUsuario = array();     
+       foreach ($perfisUsuario as $key=>$value) {    
+             $menusDoPerfil =   $this->buscarMenusPerfil($value);
+            foreach ($menusDoPerfil as  $menu) {
+                array_push($arrayMenusDisponiveisUsuario, $menu["COD_MENU"]);
+            } 
+       }
+      return $arrayMenusDisponiveisUsuario;
+    }  
+    
+    
 }
