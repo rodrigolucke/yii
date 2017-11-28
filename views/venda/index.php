@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
     
      <p>
-        <?= Html::a('Relatorio Venda', ['relatoroVendas'], ['class' => 'btn btn-info']) ?>
+        <?= Html::a('Relatorio Venda', yii\helpers\Url::to(['relatorio-venda/relatorio-venda']), ['class' => 'btn btn-info']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,

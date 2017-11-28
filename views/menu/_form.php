@@ -14,12 +14,6 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'DESCR')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'ARQUIVO')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'COD_USUARIO')->textInput() ?>
-
-    <?= $form->field($model, 'COD_PERFIL')->textInput() ?>
-
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Salvar' : 'Salvar', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>

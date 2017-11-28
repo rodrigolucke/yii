@@ -6,23 +6,25 @@ use yii\grid\GridView;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Menus';
+$this->title = 'Medicacao Animals';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="menu-index">
+<div class="medicacao-animal-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Menu', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Medicacao Animal', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'COD_MENU',
-            'DESCR',
+            'COD_MEDICACAO_ANIMAL',
+            'COD_MEDICACAO',
+            'COD_ANIMAL',
+            'DATA_APLICACAO',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

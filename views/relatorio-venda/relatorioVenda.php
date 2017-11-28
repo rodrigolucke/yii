@@ -15,7 +15,7 @@
 			B.NOME_EMPRESA 	AS CLIENTE,    
 			A.PRECO_LITRO 	AS PRECO_LITRO,
 			A.QUANTIDADE 	AS QUANTIDADE,
-			A.DATA 			AS DATA  
+			A.DATA_VENDA			AS DATA  
 		FROM
 			venda 				A,
 			empresa 			B,
@@ -25,7 +25,7 @@
 			AND C.COD_MOVIMENTO_ESTOQUE = A.COD_MOVIMENTO_ESTOQUE
 			AND C.TIPO_MOVIMENTO = 'S' -- SOMENTE VENDA (MOVIMENTO = SAIDA)
 		ORDER BY
-			DATA";	
+			DATA_VENDA";	
 	$rs 		= $conexao->executaQuery($sql);
 	$totalRows  = $conexao->contaLinhas($rs);
 	

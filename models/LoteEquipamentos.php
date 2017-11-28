@@ -5,22 +5,22 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "lote_equipamento".
+ * This is the model class for table "lote_equipamentos".
  *
- * @property integer $COD_LOTE_EQUIPAMENTO
+ * @property integer $COD_LOTE
  * @property integer $COD_EQUIPAMENTO
  *
  * @property HistoricoColeta[] $historicoColetas
  * @property Equipamento $cODEQUIPAMENTO
  */
-class LoteEquipamento extends \yii\db\ActiveRecord
+class LoteEquipamentos extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'lote_equipamento';
+        return 'lote_equipamentos';
     }
 
     /**
@@ -41,7 +41,7 @@ class LoteEquipamento extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'COD_LOTE_EQUIPAMENTO' => 'Cod  Lote  Equipamento',
+            'COD_LOTE' => 'Cod  Lote',
             'COD_EQUIPAMENTO' => 'Cod  Equipamento',
         ];
     }
@@ -51,7 +51,7 @@ class LoteEquipamento extends \yii\db\ActiveRecord
      */
     public function getHistoricoColetas()
     {
-        return $this->hasMany(HistoricoColeta::className(), ['COD_LOTE_EQUIPAMENTO' => 'COD_LOTE_EQUIPAMENTO']);
+        return $this->hasMany(HistoricoColeta::className(), ['COD_LOTE' => 'COD_LOTE']);
     }
 
     /**

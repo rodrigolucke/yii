@@ -40,14 +40,9 @@ use yii\helpers\Html;
             <tr>
                 <td style="text-align:center; padding-top:50px;">
                     
-                      <p>
-                        <?= Html::a('Gerar Relatório Venda', ['relatorio-venda'], ['class' => 'btn btn-success']) ?>     
-                      </p>
-                      
-                      <input type="submit" value="gera"> </input>
-    
-                	<button class="btn btn-success">Limpar</button>
-				</td>
+                      <input type="submit" value="gera" class="btn btn-success"> </input>
+                      <button class="btn btn-success">Limpar</button>
+                </td>
             </tr>
         </table>
 	</form>    

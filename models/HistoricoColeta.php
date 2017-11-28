@@ -9,16 +9,15 @@ use Yii;
  *
  * @property integer $COD_HISTORICO_COLETA
  * @property string $DATA_COLETA
- * @property string $QUANTIDADE_COLETA
- * @property integer $STATUS
+ * @property string $QUANTIDADE
  * @property integer $COD_USUARIO
- * @property integer $COD_LOTE_ANIMAL
- * @property integer $COD_LOTE_EQUIPAMENTO
+ * @property integer $COD_LOTE_ANIMAIS
+ * @property integer $COD_LOTE
  * @property integer $COD_MOVIMENTO_ESTOQUE
  *
  * @property Usuario $cODUSUARIO
- * @property LoteAnimal $cODLOTEANIMAL
- * @property LoteEquipamento $cODLOTEEQUIPAMENTO
+ * @property LoteAnimais $cODLOTEANIMAIS
+ * @property LoteEquipamentos $cODLOTE
  * @property MovimentoEstoque $cODMOVIMENTOESTOQUE
  */
 class HistoricoColeta extends \yii\db\ActiveRecord
@@ -38,12 +37,12 @@ class HistoricoColeta extends \yii\db\ActiveRecord
     {
         return [
             [['DATA_COLETA'], 'safe'],
-            [['QUANTIDADE_COLETA'], 'number'],
-            [['STATUS', 'COD_USUARIO', 'COD_LOTE_ANIMAL', 'COD_LOTE_EQUIPAMENTO', 'COD_MOVIMENTO_ESTOQUE'], 'integer'],
-            [['COD_USUARIO', 'COD_LOTE_ANIMAL', 'COD_MOVIMENTO_ESTOQUE'], 'required'],
+            [['QUANTIDADE'], 'number'],
+            [['COD_USUARIO', 'COD_LOTE_ANIMAIS', 'COD_MOVIMENTO_ESTOQUE'], 'required'],
+            [['COD_USUARIO', 'COD_LOTE_ANIMAIS', 'COD_LOTE', 'COD_MOVIMENTO_ESTOQUE'], 'integer'],
             [['COD_USUARIO'], 'exist', 'skipOnError' => true, 'targetClass' => Usuario::className(), 'targetAttribute' => ['COD_USUARIO' => 'COD_USUARIO']],
-            [['COD_LOTE_ANIMAL'], 'exist', 'skipOnError' => true, 'targetClass' => LoteAnimal::className(), 'targetAttribute' => ['COD_LOTE_ANIMAL' => 'COD_LOTE_ANIMAL']],
-            [['COD_LOTE_EQUIPAMENTO'], 'exist', 'skipOnError' => true, 'targetClass' => LoteEquipamento::className(), 'targetAttribute' => ['COD_LOTE_EQUIPAMENTO' => 'COD_LOTE_EQUIPAMENTO']],
+            [['COD_LOTE_ANIMAIS'], 'exist', 'skipOnError' => true, 'targetClass' => LoteAnimais::className(), 'targetAttribute' => ['COD_LOTE_ANIMAIS' => 'COD_LOTE_ANIMAIS']],
+            [['COD_LOTE'], 'exist', 'skipOnError' => true, 'targetClass' => LoteEquipamentos::className(), 'targetAttribute' => ['COD_LOTE' => 'COD_LOTE']],
             [['COD_MOVIMENTO_ESTOQUE'], 'exist', 'skipOnError' => true, 'targetClass' => MovimentoEstoque::className(), 'targetAttribute' => ['COD_MOVIMENTO_ESTOQUE' => 'COD_MOVIMENTO_ESTOQUE']],
         ];
     }
@@ -56,11 +55,10 @@ class HistoricoColeta extends \yii\db\ActiveRecord
         return [
             'COD_HISTORICO_COLETA' => 'Cod  Historico  Coleta',
             'DATA_COLETA' => 'Data  Coleta',
-            'QUANTIDADE_COLETA' => 'Quantidade  Coleta',
-            'STATUS' => 'Status',
+            'QUANTIDADE' => 'Quantidade',
             'COD_USUARIO' => 'Cod  Usuario',
-            'COD_LOTE_ANIMAL' => 'Cod  Lote  Animal',
-            'COD_LOTE_EQUIPAMENTO' => 'Cod  Lote  Equipamento',
+            'COD_LOTE_ANIMAIS' => 'Cod  Lote  Animais',
+            'COD_LOTE' => 'Cod  Lote',
             'COD_MOVIMENTO_ESTOQUE' => 'Cod  Movimento  Estoque',
         ];
     }
@@ -76,17 +74,17 @@ class HistoricoColeta extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getCODLOTEANIMAL()
+    public function getCODLOTEANIMAIS()
     {
-        return $this->hasOne(LoteAnimal::className(), ['COD_LOTE_ANIMAL' => 'COD_LOTE_ANIMAL']);
+        return $this->hasOne(LoteAnimais::className(), ['COD_LOTE_ANIMAIS' => 'COD_LOTE_ANIMAIS']);
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getCODLOTEEQUIPAMENTO()
+    public function getCODLOTE()
     {
-        return $this->hasOne(LoteEquipamento::className(), ['COD_LOTE_EQUIPAMENTO' => 'COD_LOTE_EQUIPAMENTO']);
+        return $this->hasOne(LoteEquipamentos::className(), ['COD_LOTE' => 'COD_LOTE']);
     }
 
     /**
