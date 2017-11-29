@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Incluir Historico Coleta', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Historico Coleta', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -23,11 +23,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'COD_HISTORICO_COLETA',
             'DATA_COLETA',
-            'QUANTIDADE_COLETA',
-            'STATUS',
+            'QUANTIDADE',
             'COD_USUARIO',
-            // 'COD_LOTE_ANIMAL',
-            // 'COD_LOTE_EQUIPAMENTO',
+            'COD_LOTE_ANIMAIS',
+            // 'COD_LOTE',
             // 'COD_MOVIMENTO_ESTOQUE',
 
             ['class' => 'yii\grid\ActionColumn'],

@@ -22,8 +22,17 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'SEQ_PERFIL_MENU',
-            'COD_PERFIL',
-            'COD_MENU',
+            
+            [
+                'attribute' => 'COD_PERFIL',
+                'value' => 'cODPERFIL.DESCR',    
+               // 'filter'=> Html::activeDropDownList( 'COD_PERFIL', ArrayHelper::map(\app\models\Perfil::find()->orderBy('DESCR ASC')->all(), 'COD_PERFIL', 'DESCR'), ['class' => 'form-control', 'prompt' => ''])
+             ],
+            [
+                'attribute' => 'COD_MENU',
+                'value' => 'cODMENU.DESCR',    
+               // 'filter'=> Html::activeDropDownList( 'COD_PERFIL', ArrayHelper::map(\app\models\Perfil::find()->orderBy('DESCR ASC')->all(), 'COD_PERFIL', 'DESCR'), ['class' => 'form-control', 'prompt' => ''])
+             ],            
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

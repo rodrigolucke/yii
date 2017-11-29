@@ -47,9 +47,10 @@ AppAsset::register($this);
                     ['label' => 'Cadastrar Menu', 'url' => ['/menu/index']],
                     ['label' => 'Cadastrar Usuário', 'url' => ['/usuario/index']],
                     ['label' => 'Cadastrar Perfil', 'url' => ['/perfil/index']],
-                     ['label' => 'Cadastrar Perfil Menu', 'url' => ['/perfil-pessoa/index']],
+                    ['label' => 'Cadastrar Perfil Menu', 'url' => ['/perfil-pessoa/index']],
                     ['label' => 'Cadastrar Perfil Pessoa', 'url' => ['/perfil-menu/index']],
-                   
+                                    //Nome do menu                      action/index
+                    ['label' => 'Cadastrar Perfil Pessoa', 'url' => ['/perfil-menu/index']],
                   
                 ],
                 'visible'=>!Yii::$app->user->isGuest,

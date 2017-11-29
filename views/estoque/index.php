@@ -23,7 +23,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'COD_ESTOQUE',
             'CAPACIDADE',
-            'DESCR',
+            'RESERVADO',
+            'LOCALIZACAO',
+            'GORDURA',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

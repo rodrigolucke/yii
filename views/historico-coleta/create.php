@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\HistoricoColeta */
 
-$this->title = 'Incluir Historico Coleta';
+$this->title = 'Create Historico Coleta';
 $this->params['breadcrumbs'][] = ['label' => 'Historico Coletas', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
