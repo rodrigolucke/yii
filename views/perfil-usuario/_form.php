@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\helpers\ArrayHelper;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\PerfilUsuario */
@@ -12,8 +13,11 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'COD_PERFIL')->textInput() ?>
+    
+    
+     <?= $form->field($model, 'COD_PERFIL')->dropDownList(ArrayHelper::map(\app\models\Perfil::find()->all(), 'COD_PERFIL', 'DESCR'), ['prompt'=>'']) ?>
 
+     <?= $form->field($model, 'COD_USUARIO')->dropDownList(ArrayHelper::map(\app\models\Usuario::find()->all(), 'COD_USUARIO', 'USUARIO'), ['prompt'=>'']) ?>
     <?= $form->field($model, 'COD_USUARIO')->textInput() ?>
 
     <div class="form-group">
