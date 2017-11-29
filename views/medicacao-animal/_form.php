@@ -14,9 +14,9 @@ use yii\helpers\ArrayHelper;
     <?php $form = ActiveForm::begin(); ?>
    
     
-    <?= $form->field($model, 'COD_MEDICACAO')->dropDownList(ArrayHelper::map(\app\models\TipoMovimentoEstoque::find()->all(), 'COD_MEDICACAO', 'DESCR'), ['prompt'=>'']) ?>
+    <?= $form->field($model, 'COD_MEDICACAO')->dropDownList(ArrayHelper::map(\app\models\Medicacao::find()->all(), 'COD_MEDICACAO', 'DESCR'), ['prompt'=>'']) ?>
 
-     <?= $form->field($model, 'COD_ANIMAL')->dropDownList(ArrayHelper::map(\app\models\TipoMovimentoEstoque::find()->all(), 'COD_ANIMAL', ''), ['prompt'=>'']) ?>    
+     <?= $form->field($model, 'COD_ANIMAL')->dropDownList(ArrayHelper::map(\app\models\Animal::find()->all(), 'COD_ANIMAL', ''), ['prompt'=>'']) ?>    
 
     <?= $form->field($model, 'DATA_APLICACAO')->textInput() ?>
     
