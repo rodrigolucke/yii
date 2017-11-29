@@ -138,7 +138,8 @@ class Usuario extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
   
   public function buscarPerfisUsuario(){
     	
-        $perfis = PerfilUsuario::find()->select('COD_PERFIL')->all();
+        $perfis = PerfilUsuario::find()->select('COD_PERFIL')->where(['COD_USUARIO' => Yii::$app->user->id])->all();//
+        //var_dump($perfis);die;
     	return $perfis;
     }
     
@@ -155,12 +156,31 @@ class Usuario extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
        $arrayMenusDisponiveisUsuario = array();     
        foreach ($perfisUsuario as $key=>$value) {    
              $menusDoPerfil =   $this->buscarMenusPerfil($value);
-            foreach ($menusDoPerfil as  $menu) {
-                array_push($arrayMenusDisponiveisUsuario, $menu["COD_MENU"]);
+           //  var_dump($menusDoPerfil);die;
+            foreach ($menusDoPerfil as  $menuPerfil) {
+              $menu = Menu::find()->select('DESCR')->asArray()->where(['COD_MENU' => $menuPerfil['COD_MENU']])->one();
+              
+                array_push($arrayMenusDisponiveisUsuario, $menu["DESCR"]);
+                
             } 
        }
       return $arrayMenusDisponiveisUsuario;
     }  
     
     
+    public function verificarSeAdministrador(){
+        $perfisUsuario = $this->buscarPerfisUsuario();
+         foreach ($perfisUsuario as $key=>$value) {  
+             $tipoPerfil = \app\models\Perfil::find()->asArray()->select('DESCR')->where(['COD_PERFIL' => $value['COD_PERFIL']])->all();
+             
+            // var_dump(substr($tipoPerfil[0]['DESCR'], 0, 3));die;
+             if(substr($tipoPerfil[0]['DESCR'], 0, 3)=='adm'){
+                 return true;
+             }
+         }
+         return false;
+             
+    }
+    
+     
 }

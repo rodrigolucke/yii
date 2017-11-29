@@ -1,16 +1,17 @@
 <?php
 
-namespace yii\componentes;
+namespace app\componentes;
 //namespace moduloCatalogoServicos\components;
 
 use Yii;
+use yii\web;
+use yii\web\Controller;
 use yii\filters\AccessControl;
-use yii\componentes;
-use app\componentes;
-use \app\models;
 
 
-class BaseController extends BaseController{
+
+
+class BaseController extends Controller{
 	
 	
 	/**
@@ -18,6 +19,7 @@ class BaseController extends BaseController{
 	 */
 	public function behaviors() 
 	{
+           
 		return [
 			'access' => [
 				'class' => AccessControl::className(),
@@ -25,10 +27,10 @@ class BaseController extends BaseController{
 					[
 					'allow' => true,
 					'matchCallback' => function ($rule) {											
-						$controller = $this->id;
+						//$controller = $this->id;
 						//$actionRequerida = $action->id;
 									
-						return \app\models\Usuario::buscarAcessosPerfil($controller);
+						return Funcoes::verificarSeUsuarioTemPermissaoNaUrl(Yii::$app->controller->id);
 					},
 					]
 				]

@@ -89,6 +89,13 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            
+            $modelUsuario = new \app\models\Usuario(); 
+            Yii::$app->session->set('user.listaPermissoesAcesso',$modelUsuario->buscarAcessosPerfil());
+           // var_dump(Yii::$app->session->get('user.listaPermissoesAcesso'));die;
+            
+            
+            
             return $this->goBack();
         }
         return $this->render('login', [

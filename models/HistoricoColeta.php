@@ -30,6 +30,30 @@ class HistoricoColeta extends \yii\db\ActiveRecord
         return 'historico_coleta';
     }
 
+    
+   public function afterFind() {	
+		if( $this->DATA_COLETA != null ) {
+			$dateTime = \DateTime::createFromFormat("Y-m-d H:i:s", $this->DATA_COLETA);
+			$this->DATA_COLETA = Yii::$app->formatter->asDatetime($dateTime, "php:d/m/Y");
+		}
+						
+		return parent::afterFind();
+                
+    }
+       
+    
+    
+    public function beforeSave($insert) {		
+		if( $this->DATA_COLETA != null ) {
+			if( strlen( $this->DATA_COLETA ) == 10 ){
+				$this->DATA_COLETA .= '00:00:00';
+			}
+			$dateTime = \DateTime::createFromFormat("d/m/Y H:i:s", $this->DATA_COLETA);
+			$this->DATA_COLETA = Yii::$app->formatter->asDatetime($dateTime, "php:Y-m-d H:i:s");
+		}
+		
+		return parent::beforeSave($insert);
+	}
     /**
      * @inheritdoc
      */
