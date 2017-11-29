@@ -1,4 +1,4 @@
-<?php
+
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
@@ -15,9 +15,7 @@ use yii\base\Widget;
 
     <?= $form->field($model, 'DATA_COLETA')->textInput() ?>
     
-<?= \yii\base\Widget::DatePicker::widget([   'model' => $model,  'attribute' => 'DATA_COLETA', ]);
-    
-    ?>
+
     <?= $form->field($model, 'QUANTIDADE')->textInput(['maxlength' => true ]) ?>
 
     <?= $form->field($model, 'COD_USUARIO')->textInput() ?>
