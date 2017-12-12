@@ -4,13 +4,13 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model app\models\MovimentoEstoque */
+/* @var $model app\models\TanqueEstoque */
 
-$this->title = 'Create Movimento Estoque';
-$this->params['breadcrumbs'][] = ['label' => 'Movimento Estoques', 'url' => ['index']];
+$this->title = 'Create Tanque Estoque';
+$this->params['breadcrumbs'][] = ['label' => 'Tanque Estoques', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="movimento-estoque-create">
+<div class="tanque-estoque-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

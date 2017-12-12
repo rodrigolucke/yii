@@ -24,7 +24,13 @@ $this->params['breadcrumbs'][] = $this->title;
             'COD_EMPRESA',
             'NOME_EMPRESA',
             'CNPJ',
-            'COD_ENDERECO',
+           
+            
+            [
+                'attribute' => 'COD_ENDERECO',
+                'value' => 'cODENDERECO.RUA' ,    
+               // 'filter'=> Html::activeDropDownList( 'COD_PERFIL', ArrayHelper::map(\app\models\Perfil::find()->orderBy('DESCR ASC')->all(), 'COD_PERFIL', 'DESCR'), ['class' => 'form-control', 'prompt' => ''])
+             ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

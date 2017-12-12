@@ -4,19 +4,19 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Estoque */
+/* @var $model app\models\TanqueEstoque */
 
-$this->title = $model->COD_ESTOQUE;
-$this->params['breadcrumbs'][] = ['label' => 'Estoques', 'url' => ['index']];
+$this->title = $model->SEQ_TANQUE_ESTOQUE;
+$this->params['breadcrumbs'][] = ['label' => 'Tanque Estoques', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="estoque-view">
+<div class="tanque-estoque-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->COD_ESTOQUE], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->COD_ESTOQUE], [
+        <?= Html::a('Update', ['update', 'id' => $model->SEQ_TANQUE_ESTOQUE], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Delete', ['delete', 'id' => $model->SEQ_TANQUE_ESTOQUE], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
@@ -28,11 +28,9 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
+            'SEQ_TANQUE_ESTOQUE',
             'COD_ESTOQUE',
             'COD_TANQUE',
-            'RESERVADO',
-            'LOCALIZACAO',
-            'GORDURA',
         ],
     ]) ?>
 

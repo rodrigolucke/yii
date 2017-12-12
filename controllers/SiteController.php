@@ -11,11 +11,12 @@ use app\models\LoginForm;
 use app\models\ContactForm;
 
 class SiteController extends Controller
+//class SiteController extends \app\componentes\BaseController
 {
     /**
      * @inheritdoc
      */
-    public function behaviors()
+    /**public function behaviors()
     {
         return [
             'access' => [
@@ -36,7 +37,7 @@ class SiteController extends Controller
                 ],
             ],
         ];
-    }
+    }*/
 
     /**
      * @inheritdoc

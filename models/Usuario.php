@@ -169,10 +169,11 @@ class Usuario extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     
     
     public function verificarSeAdministrador(){
+        
         $perfisUsuario = $this->buscarPerfisUsuario();
          foreach ($perfisUsuario as $key=>$value) {  
              $tipoPerfil = \app\models\Perfil::find()->asArray()->select('DESCR')->where(['COD_PERFIL' => $value['COD_PERFIL']])->all();
-             
+               
             // var_dump(substr($tipoPerfil[0]['DESCR'], 0, 3));die;
              if(substr($tipoPerfil[0]['DESCR'], 0, 3)=='adm'){
                  return true;

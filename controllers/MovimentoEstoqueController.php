@@ -64,6 +64,7 @@ class MovimentoEstoqueController extends Controller
     public function actionCreate()
     {
         $model = new MovimentoEstoque();
+        var_dump($_POST);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->COD_MOVIMENTO_ESTOQUE]);

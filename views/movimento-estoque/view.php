@@ -15,11 +15,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Editar', ['update', 'id' => $model->COD_MOVIMENTO_ESTOQUE], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Deletar', ['delete', 'id' => $model->COD_MOVIMENTO_ESTOQUE], [
+        <?= Html::a('Update', ['update', 'id' => $model->COD_MOVIMENTO_ESTOQUE], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Delete', ['delete', 'id' => $model->COD_MOVIMENTO_ESTOQUE], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Você tem certeza que deseja deletar este item?',
+                'confirm' => 'Are you sure you want to delete this item?',
                 'method' => 'post',
             ],
         ]) ?>
@@ -30,8 +30,12 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'COD_MOVIMENTO_ESTOQUE',
             'TIPO_MOVIMENTO',
-            'DATA_HISTORICO',
-            'COD_ESTOQUE',
+            'COD_EMPRESA',
+            'COD_TANQUE',
+            'PRECO_LITRO',
+            'QUANTIDADE',
+            'DATA_VENDA',
+            'DATA_ENTREGA',
         ],
     ]) ?>
 

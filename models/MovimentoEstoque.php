@@ -9,13 +9,17 @@ use Yii;
  *
  * @property integer $COD_MOVIMENTO_ESTOQUE
  * @property integer $TIPO_MOVIMENTO
- * @property string $DATA_HISTORICO
+ * @property integer $COD_EMPRESA
  * @property integer $COD_ESTOQUE
+ * @property string $PRECO_LITRO
+ * @property string $QUANTIDADE
+ * @property string $DATA_MOVIMENTO
+ * @property string $DATA_ENTREGA
  *
  * @property HistoricoColeta[] $historicoColetas
- * @property Estoque $cODESTOQUE
  * @property TipoMovimentoEstoque $tIPOMOVIMENTO
- * @property Venda[] $vendas
+ * @property Empresa $cODEMPRESA
+ * @property Estoque $cODESTOQUE
  */
 class MovimentoEstoque extends \yii\db\ActiveRecord
 {
@@ -33,11 +37,13 @@ class MovimentoEstoque extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['TIPO_MOVIMENTO', 'COD_ESTOQUE'], 'integer'],
-            [['DATA_HISTORICO'], 'safe'],
-            [['COD_ESTOQUE'], 'required'],
-            [['COD_ESTOQUE'], 'exist', 'skipOnError' => true, 'targetClass' => Estoque::className(), 'targetAttribute' => ['COD_ESTOQUE' => 'COD_ESTOQUE']],
+            [['TIPO_MOVIMENTO', 'COD_EMPRESA', 'COD_ESTOQUE'], 'integer'],
+            [['COD_EMPRESA', 'COD_ESTOQUE'], 'required'],
+            [['PRECO_LITRO', 'QUANTIDADE'], 'number'],
+            [['DATA_MOVIMENTO', 'DATA_ENTREGA'], 'safe'],
             [['TIPO_MOVIMENTO'], 'exist', 'skipOnError' => true, 'targetClass' => TipoMovimentoEstoque::className(), 'targetAttribute' => ['TIPO_MOVIMENTO' => 'COD_TIPO_MOVIMENTO_ESTOQUE']],
+            [['COD_EMPRESA'], 'exist', 'skipOnError' => true, 'targetClass' => Empresa::className(), 'targetAttribute' => ['COD_EMPRESA' => 'COD_EMPRESA']],
+            [['COD_ESTOQUE'], 'exist', 'skipOnError' => true, 'targetClass' => Estoque::className(), 'targetAttribute' => ['COD_ESTOQUE' => 'COD_ESTOQUE']],
         ];
     }
 
@@ -49,8 +55,12 @@ class MovimentoEstoque extends \yii\db\ActiveRecord
         return [
             'COD_MOVIMENTO_ESTOQUE' => 'Cod  Movimento  Estoque',
             'TIPO_MOVIMENTO' => 'Tipo  Movimento',
-            'DATA_HISTORICO' => 'Data  Historico',
+            'COD_EMPRESA' => 'Cod  Empresa',
             'COD_ESTOQUE' => 'Cod  Estoque',
+            'PRECO_LITRO' => 'Preco  Litro',
+            'QUANTIDADE' => 'Quantidade',
+            'DATA_MOVIMENTO' => 'Data  Movimento',
+            'DATA_ENTREGA' => 'Data  Entrega',
         ];
     }
 
@@ -65,14 +75,6 @@ class MovimentoEstoque extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getCODESTOQUE()
-    {
-        return $this->hasOne(Estoque::className(), ['COD_ESTOQUE' => 'COD_ESTOQUE']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
     public function getTIPOMOVIMENTO()
     {
         return $this->hasOne(TipoMovimentoEstoque::className(), ['COD_TIPO_MOVIMENTO_ESTOQUE' => 'TIPO_MOVIMENTO']);
@@ -81,8 +83,16 @@ class MovimentoEstoque extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getVendas()
+    public function getCODEMPRESA()
     {
-        return $this->hasMany(Venda::className(), ['COD_MOVIMENTO_ESTOQUE' => 'COD_MOVIMENTO_ESTOQUE']);
+        return $this->hasOne(Empresa::className(), ['COD_EMPRESA' => 'COD_EMPRESA']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCODESTOQUE()
+    {
+        return $this->hasOne(Estoque::className(), ['COD_ESTOQUE' => 'COD_ESTOQUE']);
     }
 }

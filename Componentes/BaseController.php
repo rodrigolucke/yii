@@ -30,7 +30,7 @@ class BaseController extends Controller{
 						//$controller = $this->id;
 						//$actionRequerida = $action->id;
 									
-						return Funcoes::verificarSeUsuarioTemPermissaoNaUrl(Yii::$app->controller->id);
+						return \app\componentes\Funcoes::verificarSeUsuarioTemPermissaoNaUrl(Yii::$app->controller->id);
 					},
 					]
 				]

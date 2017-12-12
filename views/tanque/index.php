@@ -6,29 +6,24 @@ use yii\grid\GridView;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Movimento Estoques';
+$this->title = 'Tanques';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="movimento-estoque-index">
+<div class="tanque-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Movimento Estoque', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Tanque', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'COD_MOVIMENTO_ESTOQUE',
-            'TIPO_MOVIMENTO',
-            'COD_EMPRESA',
             'COD_TANQUE',
-            'PRECO_LITRO',
-            // 'QUANTIDADE',
-            // 'DATA_VENDA',
-            // 'DATA_ENTREGA',
+            'CAPACIDADE',
+            'COD_STATUS',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

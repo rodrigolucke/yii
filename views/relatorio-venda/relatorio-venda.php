@@ -27,8 +27,8 @@ use yii\helpers\Html;
                         	<table>
                                 <tr>
                                     <td style="text-align:center;">
-                                        De<input type="text" name="dataIni" onKeyPress="return (soNums(event))" onkeyup="mascara_data(this, this.value)" maxlength="10" size="10" placeholder="DD/MM/AAAA">
-                                        at&eacute; <input type="text" name="dataFim" onKeyPress="return (soNums(event))" onkeyup="mascara_data(this, this.value)" maxlength="10" size="10" placeholder="DD/MM/AAAA">
+                                        De<input type="date" name="dataIni" onKeyPress="return (soNums(event))" onkeyup="mascara_data(this, this.value)" maxlength="10" size="10" placeholder="DD/MM/AAAA">
+                                        at&eacute; <input type="date" name="dataFim" onKeyPress="return (soNums(event))" onkeyup="mascara_data(this, this.value)" maxlength="10" size="10" placeholder="DD/MM/AAAA">
                                     </td>
                                 </tr>
                             </table>

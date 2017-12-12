@@ -11,21 +11,21 @@
 	
 	$sql = "
 		SELECT
-			A.COD_VENDA 	AS COD_VENDA,
+			C.DESCR 	AS COD_VENDA,
 			B.NOME_EMPRESA 	AS CLIENTE,    
 			A.PRECO_LITRO 	AS PRECO_LITRO,
 			A.QUANTIDADE 	AS QUANTIDADE,
-			A.DATA_VENDA			AS DATA  
+			A.DATA_MOVIMENTO			AS DATA  
 		FROM
-			venda 				A,
+			movimento_estoque 				A,
 			empresa 			B,
-			movimento_estoque 	C
+			tipo_movimento_estoque 	C
 		WHERE
 			A.COD_EMPRESA = B.COD_EMPRESA
-			AND C.COD_MOVIMENTO_ESTOQUE = A.COD_MOVIMENTO_ESTOQUE
-			AND C.TIPO_MOVIMENTO = 'S' -- SOMENTE VENDA (MOVIMENTO = SAIDA)
-		ORDER BY
-			DATA_VENDA";	
+			AND C.COD_TIPO_MOVIMENTO_ESTOQUE = A.TIPO_MOVIMENTO
+			AND C.COD_TIPO_MOVIMENTO_ESTOQUE = 1 -- SOMENTE VENDA (MOVIMENTO = SAIDA)
+		ORDER BY		
+			DATA_MOVIMENTO";	
 	$rs 		= $conexao->executaQuery($sql);
 	$totalRows  = $conexao->contaLinhas($rs);
 	

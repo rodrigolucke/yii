@@ -8,12 +8,13 @@ use Yii;
  * This is the model class for table "estoque".
  *
  * @property integer $COD_ESTOQUE
- * @property string $CAPACIDADE
+ * @property string $DESCR
  * @property string $RESERVADO
  * @property string $LOCALIZACAO
- * @property string $GORDURA
+ * @property string $QUANTIDADE
  *
  * @property MovimentoEstoque[] $movimentoEstoques
+ * @property TanqueEstoque[] $tanqueEstoques
  */
 class Estoque extends \yii\db\ActiveRecord
 {
@@ -31,7 +32,8 @@ class Estoque extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['CAPACIDADE', 'RESERVADO', 'GORDURA'], 'number'],
+            [['RESERVADO', 'QUANTIDADE'], 'number'],
+            [['DESCR'], 'string', 'max' => 50],
             [['LOCALIZACAO'], 'string', 'max' => 30],
         ];
     }
@@ -43,10 +45,10 @@ class Estoque extends \yii\db\ActiveRecord
     {
         return [
             'COD_ESTOQUE' => 'Cod  Estoque',
-            'CAPACIDADE' => 'Capacidade',
+            'DESCR' => 'Descr',
             'RESERVADO' => 'Reservado',
             'LOCALIZACAO' => 'Localizacao',
-            'GORDURA' => 'Gordura',
+            'QUANTIDADE' => 'Quantidade',
         ];
     }
 
@@ -56,5 +58,13 @@ class Estoque extends \yii\db\ActiveRecord
     public function getMovimentoEstoques()
     {
         return $this->hasMany(MovimentoEstoque::className(), ['COD_ESTOQUE' => 'COD_ESTOQUE']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getTanqueEstoques()
+    {
+        return $this->hasMany(TanqueEstoque::className(), ['COD_ESTOQUE' => 'COD_ESTOQUE']);
     }
 }

@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-namespace yii\componentes;
+namespace app\componentes;
 
 
 /**
@@ -21,15 +21,16 @@ class Funcoes {
     public static function verificarSeUsuarioTemPermissaoNaUrl($controller){
 		
 		//$modulo = Yii::$app->id;
-		 $usuario = new Usuario();
+		 $usuario = new \app\models\Usuario();
                  
-                 var_dump('oi');die;
+               
 		if($usuario->verificarSeAdministrador( $controller ) ){
 			return true;
 		}
-                $listaPermissoes =  Yii::$app->session->get('user.nomeUsuarioPermissoesAssumidas');
+              
+                $listaPermissoes =  \Yii::$app->session->get('user.nomeUsuarioPermissoesAssumidas');
                 
-		
+		  var_dump('olá');die;
                 var_dump($listaPermissoes);die;
                 foreach ($listaPermissoes as $value){
                     

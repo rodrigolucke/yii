@@ -2,23 +2,22 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\helpers\ArrayHelper;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Estoque */
+/* @var $model app\models\Tanque */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="estoque-form">
+<div class="tanque-form">
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'COD_TANQUE')->textInput() ?>
+    <?= $form->field($model, 'CAPACIDADE')->textInput(['maxlength' => true]) ?>
+    
+     <?= $form->field($model, 'COD_STATUS')->dropDownList(ArrayHelper::map(\app\models\Status::find()->all(), 'COD_STATUS', 'DESCRICAO'), ['prompt'=>'']) ?>
 
-    <?= $form->field($model, 'RESERVADO')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'LOCALIZACAO')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'GORDURA')->textInput(['maxlength' => true]) ?>
+    
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
