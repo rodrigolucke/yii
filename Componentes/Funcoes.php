@@ -30,24 +30,9 @@ class Funcoes {
               
                 $listaPermissoes =  \Yii::$app->session->get('user.nomeUsuarioPermissoesAssumidas');
                 
-		  var_dump('olá');die;
-                var_dump($listaPermissoes);die;
                 foreach ($listaPermissoes as $value){
                     
                 }
-		/*if( $listaPermissoes != null && $listaPermissoes->$modulo != null ){
-			if( $listaPermissoes->$modulo->$controller != null ){		
-				if( in_array( $actionRequerida, $listaPermissoes->$modulo->$controller ) ){				
-				
-					$posicaoDaActionNaListaDeActionsDisponiveis = array_search( $actionRequerida, $listaPermissoes->$modulo->$controller );
-					$valorDaActionSendoAcessada = array_values($listaPermissoes->$modulo->$controller)[$posicaoDaActionNaListaDeActionsDisponiveis];
-										
-					
-					
-					return true;
-				}
-			}		
-		}*/
 		
 		return false;
 	}
