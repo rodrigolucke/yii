@@ -1,7 +1,6 @@
 <?php
 
 namespace app\componentes;
-//namespace moduloCatalogoServicos\components;
 
 use Yii;
 use yii\web;
